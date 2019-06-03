@@ -3,10 +3,8 @@
 
 from socket import *
 import random
-from collections import deque
 import numpy as np
 import time
-import psutil
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime, timedelta
@@ -17,19 +15,8 @@ from datetime import datetime, timedelta
 s2f = lambda s: float("".join(i for i in s if 46 <= ord(i) < 58 and ord(i)!=47))
 
 # Initialization of Parameters for graphing
-x_len = 3000         # Number of points to display
-y_range = [0, 1200]  # Range of possible Y values to display
-
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
-xs = list(range(0, 3000))
-ys = [0] * x_len
-ax.set_ylim(y_range)
-
-
-# Create a blank line. We will update the line in animate
-line, = ax.plot(xs, ys,'r-')
-
 
 myFmt = mdates.DateFormatter('%H:%M:%S')
 ax.xaxis.set_major_formatter(myFmt)
