@@ -110,9 +110,6 @@ while True:
             if timeWindow > datetime.now():
                 eeg.extend(eegBuffer)
                 eegx.extend(timeBuffer)
-#                 for dates in range(len(eeg)-lenPrev):
-#                     eegx.extend([datetime.now()])
-#                 print(eegx,eeg)
             else:
                 eeg.extend(eegBuffer)
                 eegx.extend(timeBuffer)
