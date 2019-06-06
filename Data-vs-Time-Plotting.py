@@ -94,7 +94,6 @@ while True:
             for lex in tokens:
                 if lex != '':
                     lits=lex.split(',')
-#                     print(lits)      
                     buffer=[s2f(j) for j in lits if j is not '' and 'NaN' not in j]
                     eegBuffer.extend(buffer[0::5])
                     hourBuffer.extend(buffer[1::5])
@@ -102,15 +101,10 @@ while True:
                     secBuffer.extend(buffer[3::5])
                     milBuffer.extend(buffer[4::5])
             
-#             eegBuffer=[s2f(j) for j in tokens if j is not '']
-#             lenPrev=len(eeg)
-#             print(lenPrev)
-#             print(len(eegBuffer))
             for times in range(len(eegBuffer)):
                 timeBuffer.extend([datetime.now().replace(hour=int(hourBuffer[times]),minute=int(minBuffer[times]),
                                                          second=int(secBuffer[times]),microsecond=int(milBuffer[times])*1000)])
             
-#             print(eegBuffer,timeBuffer)    
 
     # Check if the window is exceeded
             if timeWindow > datetime.now():
@@ -122,8 +116,6 @@ while True:
             else:
                 eeg.extend(eegBuffer)
                 eegx.extend(timeBuffer)
-#                 for dates in range(len(eeg)-lenPrev):
-#                     eegx.extend([datetime.now()])
 
                 # remove the same number that got extended
                 for drop in range(len(eegBuffer)):
@@ -133,63 +125,3 @@ while True:
             if len(eeg)>10:
 #                 print(eegx,eeg)
                 realtimePlot()
-
-                
-                
-            
-            
-            
-
-
-
-    
-    # if not data: break
-    # Close the connection with the client
-    # conn.close()
-    
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-################################# Scrap
-# plt.axis([0, 10, 0, 1])
-
-# for i in range(10):
-#     y = np.random.random()
-#     plt.scatter(i, y)
-#     plt.pause(0.05)
-# plt.show()
-        
-# # %matplotlib notebook
-# plt.rcParams['animation.html'] = 'jshtml'
-# fig = plt.figure()
-# ax = fig.add_subplot(111)
-# fig.show()
-
-
-########## Test Check ###########
-# i = 0
-# x, y = [], []
-# while True:
-#     x.append(i)
-#     y.append(np.random.random())
-#     ax.plot(x, y, color='b')
-#     fig.canvas.draw()
-#     ax.set_xlim(left=max(0, i-50), right=i+50)
-# #     time.sleep(0.001)
-#     i += 1
-#################################
